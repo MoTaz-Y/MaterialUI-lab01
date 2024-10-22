@@ -1,9 +1,11 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import Button from "@mui/material/Button";
-import heroImage from "../../assets/hero.png";
+import { Box, Typography, Button } from "@mui/material";
+import { useTheme } from "@mui/material/styles"; // Import useTheme to utilize theme colors
+import heroImage from "../../assets/hero.png"; // Use a different hero image
 
 export default function HeroSection() {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
@@ -11,46 +13,65 @@ export default function HeroSection() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        height: "400px",
-        background: "linear-gradient(to right, #002a36, #004d57, #006080)",
-        textAlign: "center",
+        height: "100vh", // Make it full viewport height
+        backgroundImage: `url(${heroImage})`,
+        backgroundSize: "cover", // Cover the entire section
+        backgroundPosition: "center",
         position: "relative",
+        textAlign: "center",
+        color: theme.palette.common.white, // Use theme color for text
         padding: 3,
+        "&:before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark overlay for better text visibility
+        },
       }}
     >
       <Typography
-        variant="h4"
+        variant="h3"
         sx={{
-          marginBottom: 3,
+          marginBottom: 2,
           fontFamily: "'Roboto', sans-serif",
-          fontWeight: 600,
-          fontSize: { xs: "1.5rem", md: "2rem" },
-          color: "#ffffff",
+          fontWeight: 700,
+          fontSize: { xs: "2rem", md: "3rem" },
+          position: "relative", // Position relative to place it above the overlay
         }}
       >
-        Find a developer for live mentorship & freelance projects
+        Unlock Your Potential with Expert Guidance
+      </Typography>
+      <Typography
+        variant="h6"
+        sx={{
+          marginBottom: 4,
+          fontFamily: "'Roboto', sans-serif",
+          fontWeight: 400,
+          fontSize: { xs: "1rem", md: "1.25rem" },
+          position: "relative",
+        }}
+      >
+        Join our community and elevate your skills with tailored mentorship and
+        projects.
       </Typography>
       <Button
         variant="contained"
         sx={{
-          marginBottom: 3,
-          backgroundColor: "#f5945c",
-          padding: "10px 20px",
-          fontWeight: 500,
+          backgroundColor: theme.palette.primary.main, // Use theme's primary color
+          padding: "12px 24px",
+          fontWeight: 600,
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+          "&:hover": {
+            backgroundColor: theme.palette.primary.dark, // Darker shade on hover
+            boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.5)",
+          },
         }}
       >
-        GET HELP NOW
+        Start Your Journey
       </Button>
-      <img
-        src={heroImage}
-        alt="Placeholder"
-        style={{
-          width: "600px",
-          height: "auto",
-          position: "absolute",
-          bottom: -110,
-        }}
-      />
     </Box>
   );
 }

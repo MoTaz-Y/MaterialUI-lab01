@@ -24,24 +24,22 @@ export default function ButtonAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "white" }}>
+      <AppBar position="static" sx={{ backgroundColor: "#fff" }}>
         <Toolbar>
+          <ComputerIcon
+            sx={{ marginLeft: 2, marginRight: 1, color: "#007BFF" }}
+          />
+          <Typography
+            variant="h6"
+            sx={{ color: "#007BFF", fontWeight: "bold" }}
+          >
+            MoCoder
+          </Typography>
+          {/* Left Links */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <ComputerIcon
-              sx={{ marginLeft: 2, marginRight: 1, color: "black" }}
-            />
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ color: "black", fontWeight: "bold" }}
-            >
-              Codementor
-            </Typography>
-
-            {/* Left Links */}
             <Button
               onClick={(event) => handleClick(event, setAnchorElMentorship)}
-              sx={{ color: "black", marginLeft: 1, textTransform: "none" }}
+              sx={{ color: "#007BFF", marginLeft: 1, textTransform: "none" }}
             >
               Mentorship <ExpandMoreIcon />
             </Button>
@@ -60,7 +58,7 @@ export default function ButtonAppBar() {
 
             <Button
               onClick={(event) => handleClick(event, setAnchorElHelp)}
-              sx={{ color: "black", marginLeft: 1, textTransform: "none" }}
+              sx={{ color: "#007BFF", marginLeft: 1, textTransform: "none" }}
             >
               Expert Help <ExpandMoreIcon />
             </Button>
@@ -79,7 +77,7 @@ export default function ButtonAppBar() {
 
             <Button
               onClick={(event) => handleClick(event, setAnchorElFreelancing)}
-              sx={{ color: "black", marginLeft: 1, textTransform: "none" }}
+              sx={{ color: "#007BFF", marginLeft: 1, textTransform: "none" }}
             >
               Freelancing <ExpandMoreIcon />
             </Button>
@@ -96,27 +94,35 @@ export default function ButtonAppBar() {
               </MenuItem>
             </Menu>
           </Box>
-
-          {/* Right Links */}
-          <Box
-            sx={{ flexGrow: 1, display: "flex", justifyContent: "flex-end" }}
+          <Box sx={{ flexGrow: 1 }} />
+          <Button
+            sx={{
+              color: "#007BFF",
+              textTransform: "none",
+              "&:hover": { backgroundColor: "#e8f0fe" },
+            }}
           >
-            <Button sx={{ color: "black", textTransform: "none" }}>
-              Become a Mentor
-            </Button>
-            <Button sx={{ color: "black", textTransform: "none" }}>
-              Log In
-            </Button>
-            <Button
-              sx={{
-                color: "white",
-                backgroundColor: "black",
-                textTransform: "none",
-              }}
-            >
-              Sign Up
-            </Button>
-          </Box>
+            Become a Mentor
+          </Button>
+          <Button
+            sx={{
+              color: "#007BFF",
+              textTransform: "none",
+              "&:hover": { backgroundColor: "#e8f0fe" },
+            }}
+          >
+            Log In
+          </Button>
+          <Button
+            sx={{
+              color: "white",
+              backgroundColor: "#007BFF",
+              textTransform: "none",
+              "&:hover": { backgroundColor: "#0056b3" },
+            }}
+          >
+            Sign Up
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

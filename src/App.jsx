@@ -14,87 +14,112 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Developers from "./components/Developers/Developers";
 import Footer from "./components/Footer/Footer";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#007BFF", // Primary color
+    },
+    secondary: {
+      main: "#FFC107", // Secondary color
+    },
+    background: {
+      default: "#f5f5f5", // Background color
+    },
+  },
+  typography: {
+    fontFamily: "'Roboto', sans-serif",
+    h4: {
+      fontWeight: 700,
+    },
+    body1: {
+      fontWeight: 400,
+    },
+  },
+});
 function App() {
   return (
-    <>
-      <NavBar />
-      <HeroSection />
-      <InfoSection
-        title="One-on-one live mentorship"
-        items={[
-          {
-            text: "Debug with the help of an expert",
-            icon: <BugReportIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
-          },
-          {
-            text: "Personalize your learning experience",
-            icon: <PersonIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
-          },
-          {
-            text: "Get answers to complex problems",
-            icon: <BadgeIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
-          },
-        ]}
-        image={imgOne}
-        reverse={false}
-      >
-        Discover Me
-      </InfoSection>
-      <InfoSection
-        title="Project-based freelance work"
-        items={[
-          {
-            text: "Find experts for on-demand code-review",
-            icon: <CodeIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
-          },
-          {
-            text: "Build features for your existing product",
-            icon: <BuildIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
-          },
-          {
-            text: "Turn your idea into an MVP",
-            icon: (
-              <RocketLaunchIcon sx={{ color: "#71a3c1", marginRight: 1 }} />
-            ),
-          },
-        ]}
-        image={imgTwo}
-        reverse={true}
-      >
-        Find a Freelancer
-      </InfoSection>
-      <InfoSection
-        title="Hiring for a bigger project?"
-        items={[
-          {
-            text: "Arc helps you find a senior developers for both permanent full-time roles and 40+hour contract projects",
-          },
-          {
-            text: (
-              <a
-                href="https://arc.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  textDecoration: "none",
-                  display: "flex",
-                  alignItems: "center",
-                  color: "#71a3c1",
-                }}
-              >
-                visit Arc to learn more{" "}
-                <ArrowForwardIcon sx={{ marginLeft: 1 }} />{" "}
-              </a>
-            ),
-          },
-        ]}
-        image={imgThree}
-        reverse={true}
-      ></InfoSection>
-      <Developers />
-      <Footer />
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <NavBar />
+        <HeroSection />
+        <InfoSection
+          title="One-on-one live mentorship"
+          items={[
+            {
+              text: "Debug with the help of an expert",
+              icon: <BugReportIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
+            },
+            {
+              text: "Personalize your learning experience",
+              icon: <PersonIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
+            },
+            {
+              text: "Get answers to complex problems",
+              icon: <BadgeIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
+            },
+          ]}
+          image={imgOne}
+          reverse={false}
+        >
+          Discover Me
+        </InfoSection>
+        <InfoSection
+          title="Project-based freelance work"
+          items={[
+            {
+              text: "Find experts for on-demand code-review",
+              icon: <CodeIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
+            },
+            {
+              text: "Build features for your existing product",
+              icon: <BuildIcon sx={{ color: "#71a3c1", marginRight: 1 }} />,
+            },
+            {
+              text: "Turn your idea into an MVP",
+              icon: (
+                <RocketLaunchIcon sx={{ color: "#71a3c1", marginRight: 1 }} />
+              ),
+            },
+          ]}
+          image={imgTwo}
+          reverse={true}
+        >
+          Find a Freelancer
+        </InfoSection>
+        <InfoSection
+          title="Hiring for a bigger project?"
+          items={[
+            {
+              text: "Arc helps you find a senior developers for both permanent full-time roles and 40+hour contract projects",
+            },
+            {
+              text: (
+                <a
+                  href="https://arc.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    color: "#71a3c1",
+                  }}
+                >
+                  visit Arc to learn more{" "}
+                  <ArrowForwardIcon sx={{ marginLeft: 1 }} />{" "}
+                </a>
+              ),
+            },
+          ]}
+          image={imgThree}
+          reverse={true}
+        ></InfoSection>
+        <Developers />
+        <Footer />
+      </>
+    </ThemeProvider>
   );
 }
 

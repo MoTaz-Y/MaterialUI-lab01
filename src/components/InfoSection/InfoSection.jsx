@@ -18,8 +18,9 @@ export default function InfoSection({
         justifyContent: "center",
         paddingTop: 15,
         paddingBottom: 10,
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#ffffff",
         borderRadius: "8px",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.1)", // Add shadow
       }}
     >
       <Grid
@@ -31,8 +32,7 @@ export default function InfoSection({
           variant="h4"
           sx={{
             marginBottom: 2,
-            fontFamily: "'Roboto', sans-serif",
-            fontWeight: 600,
+            fontWeight: 700,
             color: "#333",
           }}
         >
@@ -51,12 +51,7 @@ export default function InfoSection({
               {item.icon}
               <Typography
                 variant="body1"
-                sx={{
-                  marginLeft: 1,
-                  fontFamily: "'Roboto', sans-serif",
-                  fontWeight: 400,
-                  color: "#555",
-                }}
+                sx={{ marginLeft: 1, fontWeight: 400, color: "#555" }}
               >
                 {item.text}
               </Typography>
@@ -68,19 +63,14 @@ export default function InfoSection({
             variant="contained"
             sx={{
               marginLeft: 5,
-              backgroundColor: "#f5945c",
-              boxShadow: "none",
-              fontWeight: 500,
-              "&:hover": {
-                backgroundColor: "#d68e3e",
-              },
+              backgroundColor: "#007BFF",
+              "&:hover": { backgroundColor: "#0056b3" },
             }}
           >
             {children}
           </Button>
         )}
       </Grid>
-
       <Grid xs={12} sm={6} sx={{ display: "flex", justifyContent: "center" }}>
         <img
           src={image}
